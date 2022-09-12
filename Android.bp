@@ -102,7 +102,10 @@ java_defaults {
         ":ThemePicker_srcs",
     ],
 
-    required: ["android.software.theme_picker.xml"],
+    required: [
+        "android.software.theme_picker.xml",
+        "VoltageColorStub",
+    ],
 
     use_embedded_native_libs: true,
 
@@ -122,6 +125,16 @@ java_defaults {
     name: "ThemePicker_defaults",
     defaults: ["ThemePicker_common_defaults"],
     srcs: [":ThemePicker_src_overrides"],
+}
+
+android_app {
+    name: "VoltageColorStub",
+    manifest: "AndroidManifest-Stub.xml",
+    resource_dirs: ["res-stub"],
+
+    certificate: "platform",
+    product_specific: true,
+    sdk_version: "current",
 }
 
 prebuilt_etc {
